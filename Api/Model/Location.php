@@ -26,18 +26,28 @@ class Location extends Database
 
     public function read(array $options = ["limit" => 10])
     {
+        $query = "SELECT id, street, building_no, postal_code, city, country, created 
+                FROM " . $this->tableName;
 
-        return $this->dbQuery("SELECT id, street, building_no, postal_code, city, country, created 
-                FROM " . $this->tableName . " LIMIT :limit", $options);
+        if (!empty($options['id']))
+        {
+            $query = $query . " WHERE id=:id";
+            $options['limit'] = 1;
+        }
+
+        $query = $query . " LIMIT :limit";
+
+
+        return $this->dbQuery($query, $options);
     }
 
     public function create(array $values)
     {
         $query = "INSERT INTO " . $this->tableName .
             " (street, building_no , postal_code, city, country, created) 
-        VALUES (:street, :building_no , :postal_code, :city, :country, :created)";
+        VALUES (:street, :building_no , :postal_code, :city, :country, datetime('now'))";
 
-        foreach ($values as $key => $value)
+        foreach ($values as $key => &$value)
         {
             $values[$key] = htmlentities(strip_tags($value ?? ''));
         }
@@ -45,57 +55,29 @@ class Location extends Database
         return $this->dbQuery($query, $values);
     }
 
-    public function readOne()
+    public function delete(array $values)
     {
-        $query = "SELECT id, street, building_no, postal_code, city, country FROM " . $this->tableName . " WHERE id=? LIMIT 0,1";
+        $query =
+            "DELETE FROM " . $this->tableName . " WHERE id = :id";
 
-        $result = $this->conn->prepare($query);
-        $result->bindParam(1, $this->id);
-        $result->execute();
+        foreach ($values as $key => $value)
+        {
+            $values[$key] = (int) $value ?? null;
+        }
 
-        $row = $result->fetch(PDO::FETCH_ASSOC);
-
-        $this->id = (int)$row['id'];
-        $this->street = $row['street'];
-        $this->buildingNo = $row['building_no'];
-        $this->postCode = $row['postal_code'];
-        $this->city = $row['city'];
-        $this->country = $row['country'];
+        return $this->dbQuery($query, $values);
     }
 
-    public function update()
+
+    public function update(array $values)
     {
         $query = "UPDATE " . $this->tableName . " SET  street=:street, building_no=:building_no, postal_code=:postal_code,
              city=:city, country=:country WHERE id=:id ";
 
-        $result = $this->conn->prepare($query);
-
-
-        $this->street = htmlentities(strip_tags($this->street ?? ''));
-        $this->buildingNo = htmlentities(strip_tags($this->buildingNo ?? ''));
-        $this->postCode = htmlentities(strip_tags($this->postCode ?? ''));
-        $this->city = htmlentities(strip_tags($this->city ?? ''));
-        $this->country = htmlentities(strip_tags($this->country ?? ''));
-
-        $result->bindParam(":id", $this->id);
-        $result->bindParam(":street", $this->street);
-        $result->bindParam(":building_no", $this->buildingNo);
-        $result->bindParam(":postal_code", $this->postCode);
-        $result->bindParam(":city", $this->city);
-        $result->bindParam(":country", $this->country);
-
-        return ($result->execute());
-    }
-
-    public function delete()
-    {
-        $query =
-            "DELETE FROM " . $this->tableName . " WHERE id = ?";
-
-        $result = $this->conn->prepare($query);
-
-        $result->bindParam(1, $this->id);
-
-        return $result->execute();
+        foreach ($values as $key => &$value)
+        {
+            $values[$key] = htmlentities(strip_tags($value ?? ''));
+        }
+        return $this->dbQuery($query, $values);
     }
 }
