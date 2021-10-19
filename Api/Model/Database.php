@@ -9,7 +9,7 @@ use Exception;
 use PDOStatement;
 use Throwable;
 
-class Database
+abstract class Database
 {
     protected ?PDO $conn = null;
 

@@ -4,25 +4,11 @@ declare(strict_types=1);
 
 namespace App\Model;
 
-use PDO;
-use Exception;
-use Throwable;
-
 require_once PROJECT_ROOT_PATH . "/Model/Database.php";
 
 class Location extends Database
 {
-    // private PDO $conn;
     private string $tableName = 'base_location';
-
-    // public int $id;
-    // public ?string $street;
-    // public ?string $buildingNo;
-    // public ?string $postCode;
-    // public ?string $city;
-    // public ?string $country;
-    // public ?string $created;
-
 
     public function read(array $options = ["limit" => 10])
     {

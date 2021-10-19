@@ -148,7 +148,6 @@ class LocationController extends BaseController
         $requestMethod = $_SERVER["REQUEST_METHOD"];
         $arrayQueryStringParams = json_decode(file_get_contents("php://input"), true);
 
-        var_dump($requestMethod);
         if (strtoupper($requestMethod) == 'PUT')
         {
             try

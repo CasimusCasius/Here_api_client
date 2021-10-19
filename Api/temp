@@ -1,0 +1,318 @@
+array(1) {
+    [
+        0
+    ]=>
+  array(9) {
+        [
+            "title"
+        ]=> "ulica Pawia 9, 31-154 Kraków, Polska"
+    [
+            "id"
+        ]=>
+    string(52) "here:af:streetsection:vg2sHSc4z8EvCCpetHoldB:EAIaATk"
+    [
+            "resultType"
+        ]=>
+    string(11) "houseNumber"
+    [
+            "houseNumberType"
+        ]=>
+    string(12) "interpolated"
+    [
+            "address"
+        ]=>
+    array(11) {
+            [
+                "label"
+            ]=>
+      string(37) "ulica Pawia 9, 31-154 Kraków, Polska"
+      [
+                "countryCode"
+            ]=>
+      string(3) "POL"
+      [
+                "countryName"
+            ]=>
+      string(6) "Polska"
+      [
+                "state"
+            ]=>
+      string(17) "Woj. Małopolskie"
+      [
+                "county"
+            ]=>
+      string(7) "Kraków"
+      [
+                "city"
+            ]=>
+      string(7) "Kraków"
+      [
+                "district"
+            ]=>
+      string(7) "Kraków"
+      [
+                "subdistrict"
+            ]=>
+      string(12) "Stare Miasto"
+      [
+                "street"
+            ]=>
+      string(11) "ulica Pawia"
+      [
+                "postalCode"
+            ]=>
+      string(6) "31-154"
+      [
+                "houseNumber"
+            ]=>
+      string(1) "9"
+        }
+    [
+            "position"
+        ]=>
+    array(2) {
+            [
+                "lat"
+            ]=>
+      float(50.06652)
+      [
+                "lng"
+            ]=>
+      float(19.9453)
+        }
+    [
+            "access"
+        ]=>
+    array(1) {
+            [
+                0
+            ]=>
+      array(2) {
+                [
+                    "lat"
+                ]=>
+        float(50.06652)
+        [
+                    "lng"
+                ]=>
+        float(19.94509)
+            }
+        }
+    [
+            "mapView"
+        ]=>
+    array(4) {
+            [
+                "west"
+            ]=>
+      float(19.9439)
+      [
+                "south"
+            ]=>
+      float(50.06562)
+      [
+                "east"
+            ]=>
+      float(19.9467)
+      [
+                "north"
+            ]=>
+      float(50.06742)
+        }
+    [
+            "scoring"
+        ]=>
+    array(2) {
+            [
+                "queryScore"
+            ]=>
+      float(1)
+      [
+                "fieldScore"
+            ]=>
+      array(5) {
+                [
+                    "country"
+                ]=>
+        float(1)
+        [
+                    "city"
+                ]=>
+        float(1)
+        [
+                    "streets"
+                ]=>
+        array(1) {
+                    [
+                        0
+                    ]=>
+          float(0.9)
+                }
+        [
+                    "houseNumber"
+                ]=>
+        float(1)
+        [
+                    "postalCode"
+                ]=>
+        float(1)
+            }
+        }
+    }
+}
+array(1) {
+    [
+        0
+    ]=>
+  array(9) {
+        [
+            "title"
+        ]=>
+    string(40) "ulica Cyfrowa 8, 71-441 Szczecin, Polska"
+    [
+            "id"
+        ]=>
+    string(65) "here:af:streetsection:XDkKLU4H7BWR8iT864nTEC:CggIBCDL_IjdAhABGgE4"
+    [
+            "resultType"
+        ]=>
+    string(11) "houseNumber"
+    [
+            "houseNumberType"
+        ]=>
+    string(2) "PA"
+    [
+            "address"
+        ]=>
+    array(10) {
+            [
+                "label"
+            ]=>
+      string(40) "ulica Cyfrowa 8, 71-441 Szczecin, Polska"
+      [
+                "countryCode"
+            ]=>
+      string(3) "POL"
+      [
+                "countryName"
+            ]=>
+      string(6) "Polska"
+      [
+                "state"
+            ]=>
+      string(23) "Woj. Zachodniopomorskie"
+      [
+                "county"
+            ]=>
+      string(8) "Szczecin"
+      [
+                "city"
+            ]=>
+      string(8) "Szczecin"
+      [
+                "district"
+            ]=>
+      string(8) "Szczecin"
+      [
+                "street"
+            ]=>
+      string(13) "ulica Cyfrowa"
+      [
+                "postalCode"
+            ]=>
+      string(6) "71-441"
+      [
+                "houseNumber"
+            ]=>
+      string(1) "8"
+        }
+    [
+            "position"
+        ]=>
+    array(2) {
+            [
+                "lat"
+            ]=>
+      float(53.45086)
+      [
+                "lng"
+            ]=>
+      float(14.53641)
+        }
+    [
+            "access"
+        ]=>
+    array(1) {
+            [
+                0
+            ]=>
+      array(2) {
+                [
+                    "lat"
+                ]=>
+        float(53.45112)
+        [
+                    "lng"
+                ]=>
+        float(14.53645)
+            }
+        }
+    [
+            "mapView"
+        ]=>
+    array(4) {
+            [
+                "west"
+            ]=>
+      float(14.5349)
+      [
+                "south"
+            ]=>
+      float(53.44996)
+      [
+                "east"
+            ]=>
+      float(14.53792)
+      [
+                "north"
+            ]=>
+      float(53.45176)
+        }
+    [
+            "scoring"
+        ]=>
+    array(2) {
+            [
+                "queryScore"
+            ]=>
+      float(1)
+      [
+                "fieldScore"
+            ]=>
+      array(4) {
+                [
+                    "country"
+                ]=>
+        float(1)
+        [
+                    "city"
+                ]=>
+        float(1)
+        [
+                    "streets"
+                ]=>
+        array(1) {
+                    [
+                        0
+                    ]=>
+          float(0.9)
+                }
+        [
+                    "houseNumber"
+                ]=>
+        float(1)
+            }
+        }
+    }
+}
+null

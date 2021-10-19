@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Api;
 
-class BaseController
+abstract class BaseController
 {
 
     public function __call($name, $arguments)
