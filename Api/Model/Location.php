@@ -2,63 +2,47 @@
 
 declare(strict_types=1);
 
-class Address
+namespace App\Model;
+
+use PDO;
+use Exception;
+use Throwable;
+
+require_once PROJECT_ROOT_PATH . "/Model/Database.php";
+
+class Location extends Database
 {
-    private PDO $conn;
+    // private PDO $conn;
     private string $tableName = 'base_location';
 
-    public int $id;
-    public ?string $street;
-    public ?string $buildingNo;
-    public ?string $postCode;
-    public ?string $city;
-    public ?string $country;
-    public ?string $created;
+    // public int $id;
+    // public ?string $street;
+    // public ?string $buildingNo;
+    // public ?string $postCode;
+    // public ?string $city;
+    // public ?string $country;
+    // public ?string $created;
 
-    public function __construct(PDO $db)
+
+    public function read(array $options = ["limit" => 10])
     {
-        $this->conn = $db;
+
+        return $this->dbQuery("SELECT id, street, building_no, postal_code, city, country, created 
+                FROM " . $this->tableName . " LIMIT :limit", $options);
     }
 
-    public function read()
-    {
-        $query = "SELECT id, street, building_no, postal_code, city, country, created FROM " . $this->tableName;
-
-        $result = $this->conn->prepare($query);
-        $result->execute();
-
-        return $result;
-    }
-
-    public function create()
+    public function create(array $values)
     {
         $query = "INSERT INTO " . $this->tableName .
             " (street, building_no , postal_code, city, country, created) 
         VALUES (:street, :building_no , :postal_code, :city, :country, :created)";
-        var_dump($query);
-        try
-        {
-            $result = $this->conn->prepare($query);
-        }
-        catch (Throwable $e)
-        {
-            var_dump($e);
-            throw new Exception("Error Processing Request", 1);
-        }
-        $this->street = htmlentities(strip_tags($this->street ?? ''));
-        $this->buildingNo = htmlentities(strip_tags($this->buildingNo ?? ''));
-        $this->postCode = htmlentities(strip_tags($this->postCode ?? ''));
-        $this->city = htmlentities(strip_tags($this->city ?? ''));
-        $this->country = htmlentities(strip_tags($this->country ?? ''));
 
-        $result->bindParam(":street", $this->street);
-        $result->bindParam(":building_no", $this->buildingNo);
-        $result->bindParam(":postal_code", $this->postCode);
-        $result->bindParam(":city", $this->city);
-        $result->bindParam(":country", $this->country);
-        $result->bindParam(":created", $this->created);
+        foreach ($values as $key => $value)
+        {
+            $values[$key] = htmlentities(strip_tags($value ?? ''));
+        }
 
-        return $result->execute();
+        return $this->dbQuery($query, $values);
     }
 
     public function readOne()
